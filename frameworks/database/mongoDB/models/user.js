@@ -20,6 +20,29 @@ const UserSchema = new Schema({
     type: String,
     default: "test_user"
   },
+  addresses: [
+    {
+      address: String
+    }
+  ],
+  phoneNumber: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  paymentInfo: String,
+  orders: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Order"
+    }
+  ],
+  favorites: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "FavoriteMenu"
+    }
+  ],
   createdAt: Date
 });
 

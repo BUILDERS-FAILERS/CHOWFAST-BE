@@ -10,6 +10,8 @@ export default function connection(redis, config) {
     console.log(`Error  ${err}`);
   });
 
+//   createRedisClient.connect()
+
   return {
     createRedisClient
   };

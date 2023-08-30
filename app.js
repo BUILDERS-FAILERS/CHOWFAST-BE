@@ -23,14 +23,17 @@ serverConfig(app, mongoose, server, config).startServer();
 mongoDbConnection(mongoose, config, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000, // Timeout for selecting a server
+  heartbeatFrequencyMS: 10000,   // Frequency of sending heartbeat to the server
+  keepAlive: true,
 }).connectToMongo();
 
 const redisClient = redisConnection(redis, config).createRedisClient();
 // console.log("Redis client:", redisClient);
-console.log("Redis client connected:", redisClient && redisClient.connected);
+// console.log("Redis client connected:", redisClient && redisClient.connected);
 // Check if the Redis client emits the 'ready' event, which indicates a successful connection
 redisClient.on('ready', () => {
-    console.log('Redis client connected: true');
+    console.log('Redis client connected:', redisClient.connected);
   });
   
   redisClient.on('error', (err) => {

@@ -17,11 +17,11 @@ export default function vendorRouter(express) {
   );
 
   // GET enpdpoints
-  router.route("/:id").get(authMiddleware, controller.fetchvendorById);
-  router.route("/").get(authMiddleware, controller.fetchvendorsByProperty);
+  router.route("/:id").get(authMiddleware, controller.fetchVendorById);
+  router.route("/").get(authMiddleware, controller.fetchVendorsByProperty);
 
   // POST enpdpoints
-  router.route("/").post(controller.addNewvendor);
+  router.route("/").post(controller.addNewVendor);
 
   return router;
 }

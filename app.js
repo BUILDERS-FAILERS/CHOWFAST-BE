@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import * as redis from "redis";
 import config from "./config/config";
 import expressConfig from "./frameworks/webserver/express";

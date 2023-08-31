@@ -23,9 +23,9 @@ serverConfig(app, mongoose, server, config).startServer();
 mongoDbConnection(mongoose, config, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 5000, // Timeout for selecting a server
-  heartbeatFrequencyMS: 10000,   // Frequency of sending heartbeat to the server
-  keepAlive: true,
+//   serverSelectionTimeoutMS: 5000, // Timeout for selecting a server
+//   heartbeatFrequencyMS: 10000,   // Frequency of sending heartbeat to the server
+//   keepAlive: true,
 }).connectToMongo();
 
 const redisClient = redisConnection(redis, config).createRedisClient();
